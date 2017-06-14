@@ -1,0 +1,47 @@
+{
+
+   "name": "d3-project-template",
+
+   "version": "0.1.0",
+
+   "description": "Ready to go d3 data visualization project template",
+
+   "keywords": [
+
+     "data visualization",
+
+     "d3"
+
+   ],
+
+   "homepage": "basicchart.html",
+
+   "author": {
+
+     "name": "zenkig",
+
+     "url": "zenkig.github.io"
+
+   },
+
+   "repository": {
+
+     "type": "git",
+
+     "url": "zenkig.github.com"
+
+   },
+
+   "dependencies": {
+
+     "d3":"3.x"
+
+     },
+
+   "devDependencies": {
+
+       "uglify-js": "2.x"
+
+   }
+
+}
