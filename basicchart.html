@@ -4,15 +4,9 @@
     <meta charset="utf-8">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
-    <script src="./chartstyle.css"></script>
-    <style>
-      circle.dimple-series-1 {
-        fill: red;
-      }
+    <link rel="stylesheet" href ="./chartstyle.css">
+    <style >
 
-      h2 {
-        text-align: center;
-      }
     </style>
 
     <script type="text/javascript">
@@ -29,6 +23,7 @@
 
           var radius = 3;
           var color = "green";
+          var multiplier = 5; // to draw and reveal hometeam
           // d3.select("body")
           //   .append("h2")
           //   .text("World Cup Attendance")
@@ -100,8 +95,20 @@
             .attr("cy", function(d) {
                 return count_scale(d["attendance"]);
             })
-            .attr("r", radius)
-            .attr("fill", color);
+            .attr("r", function(d) {
+              if (d['home']) === d['team1'] || d['home'] === d['team2']) {
+                return radius * multiplier;
+              } else {
+                return radius;
+              }
+            })
+            .attr("fill", function(d){
+              if (d['home'] === d['team1'] || d['home'] === d['team2']) {
+                return 'red';
+              } else {
+                return 'blue';
+              }
+            });
         };
 
     </script>

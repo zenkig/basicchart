@@ -1,6 +1,11 @@
+
 h2 {
   color: black;
   text-align: center;
+}
+
+circle.dimple-series-1 {
+  fill: red;
 }
 
 .axis {
