@@ -27,6 +27,7 @@ path {
 circle {
   opacity: 0.4;
   stroke: none;
+  color: #50C878;
 }
 
 .line_plot {

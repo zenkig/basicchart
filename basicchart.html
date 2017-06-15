@@ -22,11 +22,13 @@
               height = 600 - margin;
 
           var radius = 3;
-          var color = "green";
+          var color = "gray";
           var multiplier = 5; // to draw and reveal hometeam
-          // d3.select("body")
-          //   .append("h2")
-          //   .text("World Cup Attendance")
+
+          d3.select("body")
+            .append("h2")
+            .text("World Cup Attendance")
+            .attr('color','#45A7BA');
 
           var svg = d3.select("body")
             .append("svg")
@@ -89,26 +91,62 @@
           // debugger;
 
           d3.selectAll("circle")
-            .attr("cx", function(d) {
+            .attr('cx', function(d) {
                 return time_scale(d["date"]);
             })
-            .attr("cy", function(d) {
+            .attr('cy', function(d) {
                 return count_scale(d["attendance"]);
             })
-            .attr("r", function(d) {
-              if (d['home']) === d['team1'] || d['home'] === d['team2']) {
+            .attr('r', function(d) {
+              if (d['home'] === d['team1'] || d['home'] === d['team2']) {
                 return radius * multiplier;
               } else {
                 return radius;
               }
             })
-            .attr("fill", function(d){
+            .attr('fill', function(d) {
               if (d['home'] === d['team1'] || d['home'] === d['team2']) {
                 return 'red';
               } else {
                 return 'blue';
               }
             });
+
+            var legend = svg.append('g')
+                  .attr('class',"legend")
+                  .attr("transform","translate("+ (width- 100) + "," + 20 + ")")
+                  .selectAll('g')
+                  .data(["Home Team", "Others"])
+                  .enter().append("g");
+
+            legend.append("circle")
+            .attr('cy',function(d,i){
+              return i* 30;
+            })
+            .attr('r',function(d){
+              if (d == "Home Team") {
+                  return radius * multiplier;
+              } else {
+                return radius;
+              }
+            })
+            .attr("fill", function(d) {
+              if (d == "Home Team"){
+                return 'red';
+              } else {
+                return 'blue';
+              }
+            });
+
+            legend.append("text")
+            .attr("y", function(d,i){
+              return i * 30 + 5;
+            })
+            .attr("x", radius * 5)
+            .text(function(d){
+              return d;
+            });
+
         };
 
     </script>
