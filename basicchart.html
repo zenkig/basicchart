@@ -28,7 +28,7 @@
           d3.select("body")
             .append("h2")
             .text("World Cup Attendance")
-            .attr('color','#45A7BA');
+            .attr('text','#45A7BA');
 
           var svg = d3.select("body")
             .append("svg")
@@ -108,7 +108,7 @@
               if (d['home'] === d['team1'] || d['home'] === d['team2']) {
                 return 'red';
               } else {
-                return 'blue';
+                return '#45A7BA';
               }
             });
 
@@ -120,21 +120,21 @@
                   .enter().append("g");
 
             legend.append("circle")
-            .attr('cy',function(d,i){
+            .attr('cy',function(d,i) {
               return i* 30;
             })
             .attr('r',function(d){
               if (d == "Home Team") {
                   return radius * multiplier;
               } else {
-                return radius;
+                  return radius;
               }
             })
             .attr("fill", function(d) {
               if (d == "Home Team"){
                 return 'red';
               } else {
-                return 'blue';
+                return '#45A7BA';
               }
             });
 
@@ -142,8 +142,8 @@
             .attr("y", function(d,i){
               return i * 30 + 5;
             })
-            .attr("x", radius * 5)
-            .text(function(d){
+            .attr("x", radius * multiplier)
+            .text(function(d) {
               return d;
             });
 
