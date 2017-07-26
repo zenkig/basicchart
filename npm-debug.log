@@ -14,7 +14,7 @@
 4 verbose stack     at tryToString (fs.js:456:3)
 4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:443:12)
 5 verbose cwd /Users/zenkig/Documents/Work/Front/basicchart
-6 error Darwin 16.5.0
+6 error Darwin 16.6.0
 7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 8 error node v6.10.3
 9 error npm  v3.10.10
